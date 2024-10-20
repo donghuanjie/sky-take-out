@@ -5,6 +5,9 @@ import com.sky.dto.EmployeeLoginDTO;
 import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
 import com.sky.result.PageResult;
+import com.sky.result.Result;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 public interface EmployeeService {
 
@@ -27,4 +30,11 @@ public interface EmployeeService {
      * @return
      */
     PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    /**
+     * 启停员工状态
+     * @param status
+     * @param id
+     */
+    void startOrStop(Integer status, Long id);
 }

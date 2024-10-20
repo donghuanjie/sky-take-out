@@ -76,7 +76,7 @@ public class EmployeeController {
      */
     @PostMapping("/logout")
     @ApiOperation("员工退出")
-    public Result<String> logout() {
+    public Result<Object> logout() {
         return Result.success();
     }
 
@@ -87,7 +87,7 @@ public class EmployeeController {
      */
     @PostMapping
     @ApiOperation("新增员工")
-    public Result<String> save(@RequestBody EmployeeDTO employeeDTO) {
+    public Result<Object> save(@RequestBody EmployeeDTO employeeDTO) {
         log.info("新增员工: {}", employeeDTO);
         System.out.println("当前线程id: " + Thread.currentThread().getId());
 
@@ -106,5 +106,19 @@ public class EmployeeController {
         log.info("员工分页查询，参数为: {}", employeePageQueryDTO);
         PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
         return Result.success(pageResult);
+    }
+
+    /**
+     * 启停员工状态
+     * @param status
+     * @param id
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    @ApiOperation(("启停员工账号"))
+    public Result<Object> startOrStop(@PathVariable Integer status, Long id) {
+        log.info("启停员工账号: {},{}", status, id);
+        employeeService.startOrStop(status, id);
+        return Result.success();
     }
 }
