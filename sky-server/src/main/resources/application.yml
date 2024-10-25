@@ -37,3 +37,9 @@ sky:
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+
+  s3:
+    region: ${sky.s3.region}
+    access-key-id: ${sky.s3.access-key-id}
+    access-key-secret: ${sky.s3.access-key-secret}
+    bucket-name: ${sky.s3.bucket-name}
