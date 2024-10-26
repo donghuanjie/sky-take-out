@@ -7,7 +7,7 @@ sky:
     username: root
     password: 86515305
   s3:
-    region:
-    access-key-id:
-    access-key-secret:
-    bucket-name:
+    region: us-west-1
+    access-key-id: AKIAZI2LIQAV6XCFZSQG
+    access-key-secret: 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
+    bucket-name: jackysky-bucket

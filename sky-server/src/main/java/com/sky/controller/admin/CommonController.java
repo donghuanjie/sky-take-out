@@ -19,7 +19,7 @@ public class CommonController {
 
 //    @PostMapping("/upload")
 //    @ApiOperation("文件上传")
-//    public Result<String> upload(MultipartFile file) {
+//    public Result<String> upload(MultipartFile file) { // 这里这file需要和上传上来的文件名保持一致，或者使用RequestParam来对应
 //        log.info("文件上传: {}", file);
 //
 //        return null;
