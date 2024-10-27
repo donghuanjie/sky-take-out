@@ -6,7 +6,6 @@ import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
-import com.sky.mapper.EmployeeMapper;
 import com.sky.properties.JwtProperties;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
@@ -35,8 +34,6 @@ public class EmployeeController {
     private EmployeeService employeeService;
     @Autowired
     private JwtProperties jwtProperties;
-    @Autowired
-    private EmployeeMapper employeeMapper;
 
     /**
      * 登录
@@ -100,6 +97,7 @@ public class EmployeeController {
      * @param employeePageQueryDTO
      * @return pageResult
      */
+    // 这里因为是由url直接传递的参数而不是json格式的数据，因此不需要使用 @RequestBody
     @GetMapping("/page")
     @ApiOperation("员工分类查询")
     public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO) {
